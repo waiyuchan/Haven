@@ -1,0 +1,536 @@
+{
+  "settings": {
+    "name": "Haven House",
+    "city": "Manchester",
+    "address": "18 Oxford Road, Manchester M1 7ED",
+    "email": "hello@haven.example",
+    "phone": "+44 161 000 0123",
+    "beds": 12,
+    "facilityTime": "19:00"
+  },
+  "residents": [
+    {
+      "id": "r1",
+      "name": "Emily Chen",
+      "email": "emily.chen@example.com",
+      "room": "A-201",
+      "university": "University of Manchester",
+      "status": "in-house"
+    },
+    {
+      "id": "r2",
+      "name": "Oliver James",
+      "email": "oliver.j@example.com",
+      "room": "A-202",
+      "university": "Manchester Metropolitan",
+      "status": "in-house"
+    },
+    {
+      "id": "r3",
+      "name": "Aisha Khan",
+      "email": "aisha.k@example.com",
+      "room": "A-203",
+      "university": "University of Manchester",
+      "status": "in-house"
+    },
+    {
+      "id": "r4",
+      "name": "Lucas Wang",
+      "email": "lucas.w@example.com",
+      "room": "B-301",
+      "university": "University of Manchester",
+      "status": "arriving"
+    },
+    {
+      "id": "r5",
+      "name": "Sofia Rossi",
+      "email": "sofia.r@example.com",
+      "room": "B-302",
+      "university": "Manchester Metropolitan",
+      "status": "in-house"
+    },
+    {
+      "id": "r6",
+      "name": "Arjun Patel",
+      "email": "arjun.p@example.com",
+      "room": "B-303",
+      "university": "University of Manchester",
+      "status": "in-house"
+    }
+  ],
+  "plans": [
+    {
+      "id": "p1",
+      "name": "En-suite · Academic year",
+      "unit": "weekly",
+      "price": 24900,
+      "term": 44,
+      "deposit": 25000,
+      "bills": [
+        "Utilities & heating",
+        "High-speed Wi-Fi",
+        "Shared facilities"
+      ],
+      "template": "PBSA fixed-term agreement",
+      "payment": "Three instalments",
+      "description": "A private bathroom and shared kitchen for the full academic year."
+    },
+    {
+      "id": "p2",
+      "name": "Studio · Flexible monthly",
+      "unit": "monthly",
+      "price": 109000,
+      "term": 6,
+      "deposit": 40000,
+      "bills": [
+        "Utilities & heating",
+        "High-speed Wi-Fi",
+        "Shared facilities"
+      ],
+      "template": "Monthly accommodation agreement",
+      "payment": "Monthly payments",
+      "description": "A private kitchen and bathroom with flexible monthly terms."
+    },
+    {
+      "id": "p3",
+      "name": "Classic · Weekly",
+      "unit": "weekly",
+      "price": 19500,
+      "term": 51,
+      "deposit": 20000,
+      "bills": [
+        "High-speed Wi-Fi",
+        "Shared facilities"
+      ],
+      "template": "PBSA fixed-term agreement",
+      "payment": "Three instalments",
+      "description": "A private bedroom with a shared lounge and kitchen, plus optional extras."
+    }
+  ],
+  "contracts": [
+    {
+      "id": "CTR-2026-001",
+      "residentId": "r1",
+      "planId": "p1",
+      "title": "En-suite academic-year agreement",
+      "start": "2026-09-12",
+      "end": "2027-07-17",
+      "status": "signed",
+      "createdAt": "2026-08-20T10:00:00Z",
+      "signedAt": "2026-08-21T09:30:00Z",
+      "snapshot": {
+        "name": "En-suite · Academic year",
+        "unit": "weekly",
+        "price": 24900,
+        "term": 44,
+        "deposit": 25000,
+        "bills": [
+          "Utilities & heating",
+          "High-speed Wi-Fi",
+          "Shared facilities"
+        ],
+        "template": "PBSA fixed-term agreement",
+        "payment": "Three instalments",
+        "total": 1095600
+      }
+    }
+  ],
+  "invoices": [
+    {
+      "id": "INV-2026-001",
+      "residentId": "r1",
+      "title": "November accommodation payment",
+      "items": [
+        {
+          "description": "Rent instalment · November",
+          "quantity": 1,
+          "unitPrice": 109000
+        }
+      ],
+      "total": 109000,
+      "due": "2026-11-10",
+      "status": "issued",
+      "createdAt": "2026-11-01T10:00:00Z"
+    },
+    {
+      "id": "INV-2026-002",
+      "residentId": "r2",
+      "title": "Weekly accommodation",
+      "items": [
+        {
+          "description": "En-suite · 1 week",
+          "quantity": 1,
+          "unitPrice": 24900
+        }
+      ],
+      "total": 24900,
+      "due": "2026-11-08",
+      "status": "issued",
+      "createdAt": "2026-11-01T10:00:00Z"
+    },
+    {
+      "id": "INV-2026-003",
+      "residentId": "r3",
+      "title": "October accommodation",
+      "items": [
+        {
+          "description": "Studio · 1 month",
+          "quantity": 1,
+          "unitPrice": 109000
+        }
+      ],
+      "total": 109000,
+      "due": "2026-10-10",
+      "status": "paid",
+      "createdAt": "2026-10-01T10:00:00Z"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "WO-1042",
+      "residentId": "r1",
+      "title": "Bathroom tap keeps dripping",
+      "category": "Plumbing & bathroom",
+      "priority": "normal",
+      "status": "in-progress",
+      "description": "The cold tap keeps dripping when turned off. I am available for a visit after 2 pm.",
+      "access": true,
+      "assetId": "a2",
+      "createdAt": "2026-11-05T09:25:00Z"
+    },
+    {
+      "id": "WO-1043",
+      "residentId": "r3",
+      "title": "Bedroom radiator stays cold",
+      "category": "Heating & electrical",
+      "priority": "urgent",
+      "status": "open",
+      "description": "The radiator has been cold since last night. I checked the thermostat. Please arrange a visit before entering.",
+      "access": false,
+      "assetId": "",
+      "createdAt": "2026-11-06T08:10:00Z"
+    }
+  ],
+  "assets": [
+    {
+      "id": "a1",
+      "name": "Cinema projector",
+      "location": "Ground floor · Cinema",
+      "category": "Electronics",
+      "cost": 180000,
+      "quantity": 1,
+      "purchased": "2025-09-01",
+      "life": 5,
+      "salvage": 10000,
+      "status": "good"
+    },
+    {
+      "id": "a2",
+      "name": "En-suite tap set",
+      "location": "A-201 · Bathroom",
+      "category": "Bathroom fittings",
+      "cost": 12000,
+      "quantity": 1,
+      "purchased": "2025-08-15",
+      "life": 5,
+      "salvage": 0,
+      "status": "repair"
+    },
+    {
+      "id": "a3",
+      "name": "Shared lounge sofa",
+      "location": "Ground floor · Lounge",
+      "category": "Furniture",
+      "cost": 65000,
+      "quantity": 3,
+      "purchased": "2024-09-01",
+      "life": 6,
+      "salvage": 5000,
+      "status": "good"
+    },
+    {
+      "id": "a4",
+      "name": "Gym treadmill",
+      "location": "First floor · Gym",
+      "category": "Fitness equipment",
+      "cost": 120000,
+      "quantity": 2,
+      "purchased": "2025-09-01",
+      "life": 5,
+      "salvage": 10000,
+      "status": "good"
+    }
+  ],
+  "facilities": [
+    {
+      "id": "f1",
+      "name": "The Picture House",
+      "kind": "cinema",
+      "capacity": 12,
+      "location": "Ground floor",
+      "hours": "10:00–22:00",
+      "description": "Book the screening room for a film night with your neighbours. It has a 4K projector and surround sound.",
+      "resourceType": "space",
+      "bookingMode": "exclusive",
+      "enabled": true,
+      "activationMinutes": 60
+    },
+    {
+      "id": "f2",
+      "name": "The Living Room",
+      "kind": "lounge",
+      "capacity": 20,
+      "location": "Ground floor",
+      "hours": "08:00–23:00",
+      "description": "A shared living room for coffee, conversation and board games.",
+      "resourceType": "space",
+      "bookingMode": "shared",
+      "enabled": true,
+      "activationMinutes": 60
+    },
+    {
+      "id": "f3",
+      "name": "Move Studio",
+      "kind": "gym",
+      "capacity": 8,
+      "location": "First floor",
+      "hours": "07:00–22:00",
+      "description": "Book a session to use the cardio equipment and free weights.",
+      "resourceType": "space",
+      "bookingMode": "shared",
+      "enabled": true,
+      "activationMinutes": 60
+    },
+    {
+      "hours": "07:00–23:00",
+      "resourceType": "space",
+      "enabled": true,
+      "activationMinutes": 60,
+      "id": "f4",
+      "name": "The Meeting Room",
+      "kind": "meeting",
+      "capacity": 8,
+      "location": "First floor",
+      "bookingMode": "exclusive",
+      "description": "Book the room for group projects, video calls or society meetings."
+    },
+    {
+      "hours": "07:00–23:00",
+      "resourceType": "space",
+      "enabled": true,
+      "activationMinutes": 60,
+      "id": "f5",
+      "name": "The Study Library",
+      "kind": "study",
+      "capacity": 16,
+      "location": "Second floor",
+      "bookingMode": "shared",
+      "description": "A quiet shared space for reading and study. Join the queue if all seats are taken."
+    },
+    {
+      "hours": "07:00–23:00",
+      "resourceType": "space",
+      "enabled": true,
+      "activationMinutes": 60,
+      "id": "f6",
+      "name": "The Shared Kitchen",
+      "kind": "kitchen",
+      "capacity": 6,
+      "location": "Ground floor",
+      "bookingMode": "shared",
+      "description": "Cook with your neighbours. Share the kitchen and book each oven separately."
+    },
+    {
+      "hours": "07:00–23:00",
+      "resourceType": "equipment",
+      "enabled": true,
+      "activationMinutes": 60,
+      "id": "f7",
+      "name": "Kitchen Oven 01",
+      "kind": "oven",
+      "capacity": 1,
+      "location": "Ground floor · Kitchen",
+      "bookingMode": "exclusive",
+      "parentId": "f6",
+      "description": "Book the first oven, scan to activate and release it when you finish."
+    },
+    {
+      "hours": "07:00–23:00",
+      "resourceType": "equipment",
+      "enabled": true,
+      "activationMinutes": 60,
+      "id": "f8",
+      "name": "Kitchen Oven 02",
+      "kind": "oven",
+      "capacity": 1,
+      "location": "Ground floor · Kitchen",
+      "bookingMode": "exclusive",
+      "parentId": "f6",
+      "description": "Book this second oven independently of the kitchen and other equipment."
+    }
+  ],
+  "reservations": [],
+  "posts": [
+    {
+      "id": "post1",
+      "author": "Haven team",
+      "role": "operator",
+      "type": "announcement",
+      "title": "Saturday heating checks",
+      "body": "We will check the heating in shared areas this Saturday from 10 am to noon. Bedrooms are unaffected. Contact the maintenance team through the portal if you have questions.",
+      "createdAt": "2026-11-05T15:00:00Z",
+      "likes": [],
+      "comments": []
+    },
+    {
+      "id": "post2",
+      "author": "Sofia Rossi",
+      "role": "resident",
+      "type": "volunteer",
+      "title": "Volunteer at the food bank this Sunday",
+      "body": "Meet at reception at 9:30 am on Sunday to volunteer at the local food bank. First-time volunteers are welcome!",
+      "createdAt": "2026-11-04T11:30:00Z",
+      "likes": [
+        "r1",
+        "r3"
+      ],
+      "comments": [
+        {
+          "author": "Emily Chen",
+          "body": "Count me in. See you there!",
+          "createdAt": "2026-11-04T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "post3",
+      "author": "Oliver James",
+      "role": "resident",
+      "type": "discussion",
+      "title": "Anyone up for a film night?",
+      "body": "I am planning to book the cinema for Friday evening. What would everyone like to watch?",
+      "createdAt": "2026-11-03T17:00:00Z",
+      "likes": [
+        "r2"
+      ],
+      "comments": []
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg1",
+      "author": "Haven team",
+      "role": "operator",
+      "body": "Welcome to Haven House! Meet your neighbours and share what is happening in the community.",
+      "createdAt": "2026-11-05T09:00:00Z"
+    },
+    {
+      "id": "msg2",
+      "author": "Emily Chen",
+      "role": "resident",
+      "body": "I just moved to Manchester. Any favourite cafés nearby? ☕",
+      "createdAt": "2026-11-05T09:10:00Z"
+    }
+  ],
+  "mail": [
+    {
+      "id": "mail1",
+      "to": "emily.chen@example.com",
+      "subject": "Haven House · Your November invoice",
+      "body": "Hi Emily,\nYour November invoice INV-2026-001 is now available in your resident portal.\nAmount due: £1,090.00\nDue date: 10 November 2026\n\nThis is a demonstration email preview. No email has been sent.",
+      "documentId": "INV-2026-001",
+      "createdAt": "2026-11-01T10:00:00Z",
+      "status": "preview"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "room-0",
+      "number": "A-201",
+      "floor": "2",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-1",
+      "number": "A-202",
+      "floor": "2",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-2",
+      "number": "A-203",
+      "floor": "2",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-3",
+      "number": "A-204",
+      "floor": "2",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-4",
+      "number": "A-205",
+      "floor": "2",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-5",
+      "number": "A-206",
+      "floor": "2",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-6",
+      "number": "B-301",
+      "floor": "3",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-7",
+      "number": "B-302",
+      "floor": "3",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-8",
+      "number": "B-303",
+      "floor": "3",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-9",
+      "number": "B-304",
+      "floor": "3",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-10",
+      "number": "B-305",
+      "floor": "3",
+      "type": "bedroom",
+      "status": "available"
+    },
+    {
+      "id": "room-11",
+      "number": "B-306",
+      "floor": "3",
+      "type": "bedroom",
+      "status": "available"
+    }
+  ],
+  "queueEntries": [],
+  "facilityUsage": [],
+  "accessEvents": [],
+  "schemaVersion": 2
+}

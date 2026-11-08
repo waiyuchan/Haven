@@ -1,171 +1,78 @@
-# DBsSA: Digital British-style Student Apartments
+# DBsSA · Haven
 
-![](https://img.shields.io/badge/language-Java-orange.svg)
-![](https://img.shields.io/badge/backend_frame-Spring_Boot-6db33f.svg)
-![](https://img.shields.io/badge/ORM-MyBatis-red.svg)
-![](https://img.shields.io/badge/deploy-Docker-blue.svg)
-![](https://img.shields.io/badge/license-Apache_2.0-green.svg)
+Haven is a Go web application for student accommodation. It gives residents a place to book shared spaces, review agreements and invoices, and report repairs. Property teams use a separate portal to manage rooms, residents, facilities and access.
 
----
+## Quick start
 
-<font size="5"><strong>目录<strong></font>
+Install Go 1.22 or later. From the repository root, run the following commands.
 
-  - [DBsSA 项目介绍 (Project Introduction)](#dbssa-项目介绍-project-introduction)
-  - [DBsSA 相关项目传送门 (Portal of DBsSA-related Projects)](#dbssa-相关项目传送门-portal-of-dbssa-related-projects)
-  - [功能规划 (Functional Planning)](#功能规划-functional-planning)
-    - [🏢 企业运营端](#-企业运营端)
-    - [🏠 公寓运营端](#-公寓运营端)
-    - [👨🏻‍🎓 公寓住户端](#-公寓住户端)
-    - [🧑🏻‍💻 公寓预订系统](#-公寓预订系统)
-    - [🎬 公寓影院](#-公寓影院)
-    - [🏬 公寓二手交易平台](#-公寓二手交易平台)
-    - [📱 公寓社区](#-公寓社区)
-  - [系统架构设计](#系统架构设计)
-  - [接口设计](#接口设计)
-    - [接口文档](#接口文档)
-    - [接口错误码](#接口错误码)
-  - [Mock的服务](#mock的服务)
-  - [项目指引](#项目指引)
-  - [友情链接](#友情链接)
-
-## DBsSA 项目介绍 (Project Introduction)
-
-该项目旨在将英式学生公寓的日常繁杂的手工流程进行梳理和抽象，映射为数字化信息流程。 项目基于SpringBoot +
-MyBatis框架，结合大数据技术、人工智能算法、区块链服务搭建而成，进一步提供高效化、合规化、智能化的学生公寓数字化服务。
-
-The project aims to sort out and abstract the daily complicated manual processes of British-style student apartments,
-and map them into digital information processes. The project is based on the SpringBoot + MyBatis framework, combined
-with Big Data Technology, Artificial Intelligence Algorithms, and Blockchain Services, to further provide efficient,
-compliant, and intelligent digital services for student apartments.
-
-## DBsSA 相关项目传送门 (Portal of DBsSA-related Projects)
-
-| 项目 (Project) | 编程语言 (Language) | 传送门 (Link) |
-| --- | --- | --- |
-| Web前端 (Web Frontend) | Vue.js + TypeScript | [~~敬请期待 (Coming Soon)~~]() |
-| 移动端Android App (Mobile Android App) | Kotlin | [~~敬请期待 (Coming Soon)~~]() |
-| 区块链服务 (Blockchain Service) | Golang | [氢链（HydrogenChain）](https://github.com/weiyuchens/HydrogenChain) |
-| 推荐算法 (Recommendation Algorithm) | Java、Python、C++ | [~~敬请期待 (Coming Soon)~~]() |
-| 即时通讯组件 (Instant Messaging Component) | C++、Java、Python | [~~敬请期待 (Coming Soon)~~]() |
-| 影院终端桌面版 (Cinema Terminal Desktop Version) | C++ | [~~敬请期待 (Coming Soon)~~]() |
-| Mock服务 (Mock Service) | Python | [~~敬请期待 (Coming Soon)~~]() |
-
-## 功能规划 (Functional Planning)
-
-### 🏢 企业运营端
-
-- [ ] 企业管理
-    - [x] 企业人员管理
-        - [ ] 企业人员公寓分配管理
-- [ ] 公寓管理
-    - [x] 公寓楼管理
-        - [x] 房型管理
-          - [x] 价格管理
-        - [ ] 房间管理
-            - [ ] 批量数据处理，支持导入导出（ CSV / Excel / JSON ）
-        - [ ] 公寓楼组织架构管理
-        - [ ] 公寓楼运营权限管理
-        - [ ] 公寓人员权限管理
-            - [ ] 以组织架构为单位的批量权限赋予
-            - [ ] 单人权限赋予（最高优先级）
-- [ ] 公寓影院资源管理
-    - [ ] 影片资源管理
-- [ ] 数据统计
-
-### 🏠 公寓运营端
-
-- [ ] 公寓信息查询
-- [ ] 公寓住户管理
-- [ ] 公寓资产管理
-- [ ] 公寓入住退租管理
-- [ ] 公寓报修管理
-- [ ] 公寓合同管理
-    - [ ] 发起合同签署
-    - [ ] 合同续约
-    - [ ] 合同作废
-    - [ ] 合同转让
-    - [ ] 合同查询
-- [ ] 门禁卡管理
-- [ ] 网络账户管理
-- [ ] 邮件通讯管理
-
-### 👨🏻‍🎓 公寓住户端
-
-- [ ] 登陆
-- [ ] 扫一扫
-- [ ] 信息查询
-    - [ ] 个人信息
-    - [ ] 居住信息
-    - [ ] 公寓楼信息/房间信息
-    - [ ] 合同信息
-- [ ] 电子门禁卡
-- [ ] 在线报修
-    - [ ] 报修申请
-    - [ ] 报修查询
-- [ ] 账单管理
-- [ ] 账单支付
-- [ ] 公寓小圈子
-
-### 🧑🏻‍💻 公寓预订系统
-
-- [ ] 分期计算器
-- [ ] 预订房间
-- [ ] 预订追踪
-- [ ] 邮件往来
-
-### 🎬 公寓影院
-
-- [ ] 影院终端
-    - [ ] 用户扫码登陆
-    - [ ] 影片库
-    - [ ] 影片播放器
-    - [ ] 观影记录
-    - [ ] 影片点评（顶、踩、评论）
-    - [ ] 电影推荐
-
-### 🏬 公寓二手交易平台
-
-- [ ] 登陆
-    - [ ] 扫码登陆
-    - [ ] 账户登陆
-    - [ ] 免登陆
-- [ ] 二手商品发布
-- [ ] 二手商品交易
-- [ ] 物流跟踪
-- [ ] 买卖家交流
-
-### 📱 公寓社区
-
-### 🏬 公寓商店
-
-## 系统架构设计
-
-
-敬请期待
-
-## 接口设计
-
-### 接口文档
-
-[接口文档传送门](docs/api/README.md)
-
-### 接口错误码
-
-[接口错误码文档](docs/api_error_code/README.md)
-
-## Mock的服务
-
-* 物流系统（参考顺丰快递查询接入流程，https://open.sf-express.com/Api?category=1&apiClassify=1）
-* 支付系统（参考微信支付 & 支付宝接入流程）
-
-## 项目指引
-
-* 数据库表更新，需要使用MBG重新逆向工程，命令是
-
-```bash
-mvn mybatis-generator:generate
+```sh
+cd haven
+go run ./backend
 ```
 
-## 友情链接
-* 测试用例数据支持：[随机数据生成器](https://github.com/yindz/common-random)
-* 测试数据（文章/朋友圈类）支持：[狗屁不通文章生成器](https://github.com/2911921818/BullshitGenerator)
+Open [http://127.0.0.1:8088](http://127.0.0.1:8088). Choose **Resident portal** and select Emily Chen, or choose **Property team** and select Administrator or Staff. The forms fill in the demo access codes.
+
+| Setting | Default |
+| --- | --- |
+| `DBSSA_ADDR` | `127.0.0.1:8088` |
+| `DBSSA_DATA` | `data/state.json`, relative to `haven/` when run as shown above |
+
+## Architecture
+
+![Haven runtime. The browser loads the portals and calls the JSON API over HTTP. A single Go process handles sessions, permissions and actions, then saves changes to a local JSON file.](docs/architecture/haven-runtime.svg)
+
+[PNG](docs/architecture/haven-runtime.png) · [Editable Excalidraw](docs/architecture/haven-runtime.excalidraw)
+
+> **Storage note.** The JSON file shown in the diagram is a lightweight demo default. You can adapt persistence to MySQL, PostgreSQL or another database, and use object storage for documents, images and other files. These options require implementing the corresponding storage integration while preserving permission checks, data validation and concurrent update handling.
+
+| Layer | Implementation |
+| --- | --- |
+| Web interface | Responsive HTML, CSS and JavaScript modules in [`haven/public/portal/`](haven/public/portal/). Go serves the files directly, with no frontend build step. |
+| HTTP service | A single Go process uses the standard-library `net/http` package to serve the portals and a same-origin JSON API. [`main.go`](haven/backend/main.go) |
+| Sessions and permissions | Resident and operator logins use separate cookies. Session records live in memory. Go filters each role's view and checks permissions before applying actions. [`portal.go`](haven/backend/portal.go) · [`access.go`](haven/backend/access.go) |
+| Business state | Go loads the JSON state at startup or uses the bundled seed. It validates changes, checks the revision to reject stale updates, and saves by atomically replacing the file. State survives a restart. Demo sign-ins are required again after a restart. [`main.go`](haven/backend/main.go) · [`seed.json`](haven/backend/seed.json) |
+
+Each portal has three JSON endpoints under `/api/resident/` or `/api/operator/`. The `session` endpoint handles sign-in, `state` returns the authorised view and accepts permitted updates, and `action` handles operations such as bookings, queue changes and door access. `GET /healthz` reports service health.
+
+## What you can try
+
+| Role | Workflows |
+| --- | --- |
+| Resident | Book or queue for shared spaces, activate a session with a QR link, use demo keys, review agreements and invoices, track repairs, and join community discussions. |
+| Administrator | Manage rooms, residents, staff, facilities, weekly and monthly rent plans, agreements, invoices, repairs and assets. Review all simulated door activity. |
+| Staff | Update repairs, manage facility bookings and queues, and review entrance and shared-space access activity from the shift desk. |
+
+The bundled data describes one sample property with 12 bedrooms, six shared spaces and two bookable ovens. Accounts and records are synthetic. Signing, payment confirmation, email and door access are simulated.
+
+## Product showcase
+
+Select a board to see the full-size screenshots.
+
+| Resident experience | Shared spaces and access |
+| --- | --- |
+| [![Resident sign-in, mobile home, documents, repairs and community](docs/showcase/01-resident-journey.png)](docs/showcase/01-resident-journey.png) | [![Bookings, queues, QR passes, mobile keys and door activity](docs/showcase/02-spaces-and-access.png)](docs/showcase/02-spaces-and-access.png) |
+| **Property operations** | **Leasing and team permissions** |
+| [![Rooms, residents, repairs, assets and mobile operations](docs/showcase/03-property-operations.png)](docs/showcase/03-property-operations.png) | [![Rent plans, invoices, email previews and team permissions](docs/showcase/04-leasing-and-team.png)](docs/showcase/04-leasing-and-team.png) |
+
+## Hosted preview
+
+The hosted preview requires authorised ChatGPT access. It serves the same web interface and API routes through a TypeScript adapter on Cloudflare Workers, with D1 for demo state and sessions. The self-hosted Go application runs independently and uses its own local data.
+
+[Resident preview](https://dbssa-apartment-home-20261106.waiyuchan.chatgpt.site/resident/login) · [Operator preview](https://dbssa-apartment-home-20261106.waiyuchan.chatgpt.site/operator/login)
+
+## Tests
+
+Run the Go and JavaScript tests from `haven/`. The JavaScript tests use Node.js 22.
+
+```sh
+go test -race ./backend
+node --test public/portal/domain.test.mjs tests/facility.test.mjs
+```
+
+Run the HTTP tests against a running instance with disposable demo data. They create bookings and modify sample records.
+
+```sh
+node tests/portal-http.mjs
+node tests/access-http.mjs
+```

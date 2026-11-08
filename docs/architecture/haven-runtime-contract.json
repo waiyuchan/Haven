@@ -1,0 +1,89 @@
+{
+  "canvas": {
+    "width": 1250,
+    "height": 512,
+    "strictBounds": true
+  },
+  "requiredLabels": [
+    "Haven runtime",
+    "Go server",
+    "Web browser",
+    "HTTP routes and sessions",
+    "Permissions and actions",
+    "JSON state file",
+    "Load UI / call API",
+    "Apply role and rules",
+    "Read / save state",
+    "Implemented component",
+    "Request, call or file operation"
+  ],
+  "forbiddenLabels": [
+    "Maven",
+    "Spring Boot",
+    "MyBatis"
+  ],
+  "styleRules": [
+    {
+      "label": "Go server",
+      "strokeColor": "#1971c2",
+      "strokeStyle": "solid"
+    },
+    {
+      "label": "Web browser",
+      "strokeColor": "#1971c2",
+      "strokeStyle": "solid"
+    },
+    {
+      "label": "HTTP routes and sessions",
+      "strokeColor": "#1971c2",
+      "strokeStyle": "solid"
+    },
+    {
+      "label": "Permissions and actions",
+      "strokeColor": "#1971c2",
+      "strokeStyle": "solid"
+    },
+    {
+      "label": "JSON state file",
+      "strokeColor": "#1971c2",
+      "strokeStyle": "solid"
+    }
+  ],
+  "requiredRelations": [
+    {
+      "from": "Web browser",
+      "to": "HTTP routes and sessions"
+    },
+    {
+      "from": "HTTP routes and sessions",
+      "to": "Permissions and actions"
+    },
+    {
+      "from": "Permissions and actions",
+      "to": "JSON state file"
+    }
+  ],
+  "overlapSets": [
+    [
+      "Web browser",
+      "HTTP routes and sessions",
+      "Permissions and actions",
+      "JSON state file"
+    ],
+    [
+      "Web browser",
+      "Go server",
+      "JSON state file"
+    ]
+  ],
+  "palette": [
+    "#1f2937",
+    "#64748b",
+    "#1971c2",
+    "#e7f5ff",
+    "#f3f8ff",
+    "transparent"
+  ],
+  "requireBoundArrows": true,
+  "checkTextBounds": true
+}

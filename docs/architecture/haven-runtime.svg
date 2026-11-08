@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="512" viewBox="0 0 1250 512">
+<defs>
+<marker id="arrow-ink" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1f2937"/></marker>
+<marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1971c2"/></marker>
+<marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2f9e44"/></marker>
+<marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#e67700"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#868e96"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c92a2a"/></marker>
+<style>.sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono","PingFang SC",monospace}</style>
+</defs><rect width="1250" height="512" fill="#ffffff"/>
+<rect x="460" y="132" width="364" height="305" rx="12" fill="#f3f8ff" fill-opacity="0.68" stroke="#1971c2" stroke-width="2"/>
+<rect x="36" y="181" width="237" height="108" rx="12" fill="#e7f5ff" fill-opacity="1" stroke="#1971c2" stroke-width="2"/>
+<rect x="484" y="180" width="316" height="108" rx="12" fill="#e7f5ff" fill-opacity="1" stroke="#1971c2" stroke-width="2"/>
+<rect x="484" y="330" width="316" height="85" rx="12" fill="#e7f5ff" fill-opacity="1" stroke="#1971c2" stroke-width="2"/>
+<rect x="1000" y="328" width="214" height="89" rx="12" fill="#e7f5ff" fill-opacity="1" stroke="#1971c2" stroke-width="2"/>
+<rect x="37" y="466" width="26" height="16" rx="12" fill="#e7f5ff" fill-opacity="1" stroke="#1971c2" stroke-width="2"/>
+<polyline points="279,234 478,234" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ink)" opacity="1"/>
+<polyline points="642,294 642,324" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ink)" opacity="1"/>
+<polyline points="806,372 994,372" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ink)" opacity="1"/>
+<text x="36" y="62" text-anchor="start" class="sans" font-size="34" fill="#1f2937">
+<tspan x="36" dy="0">Haven runtime</tspan>
+</text>
+<text x="36" y="97" text-anchor="start" class="sans" font-size="20" fill="#64748b">
+<tspan x="36" dy="0">Self-hosted · One Go process serves the web UI and JSON API</tspan>
+</text>
+<text x="478" y="168" text-anchor="start" class="sans" font-size="22" fill="#1971c2">
+<tspan x="478" dy="0">Go server</tspan>
+</text>
+<text x="154.5" y="211" text-anchor="middle" class="sans" font-size="21" fill="#1f2937">
+<tspan x="154.5" dy="0">Web browser</tspan>
+</text>
+<text x="154.5" y="232" text-anchor="middle" class="mono" font-size="15" fill="#64748b">
+<tspan x="154.5" dy="0">Resident and operator portals</tspan>
+<tspan x="154.5" dy="17.4">HTML, CSS and JavaScript</tspan>
+</text>
+<text x="642" y="210" text-anchor="middle" class="sans" font-size="21" fill="#1f2937">
+<tspan x="642" dy="0">HTTP routes and sessions</tspan>
+</text>
+<text x="642" y="231" text-anchor="middle" class="mono" font-size="15" fill="#64748b">
+<tspan x="642" dy="0">Static assets, JSON API and</tspan>
+<tspan x="642" dy="17.4">in-memory cookie sessions</tspan>
+</text>
+<text x="642" y="360" text-anchor="middle" class="sans" font-size="21" fill="#1f2937">
+<tspan x="642" dy="0">Permissions and actions</tspan>
+</text>
+<text x="642" y="381" text-anchor="middle" class="mono" font-size="15" fill="#64748b">
+<tspan x="642" dy="0">Role-scoped views, booking rules</tspan>
+<tspan x="642" dy="17.4">and state validation</tspan>
+</text>
+<text x="1107" y="358" text-anchor="middle" class="sans" font-size="21" fill="#1f2937">
+<tspan x="1107" dy="0">JSON state file</tspan>
+</text>
+<text x="1107" y="379" text-anchor="middle" class="mono" font-size="15" fill="#64748b">
+<tspan x="1107" dy="0">data/state.json</tspan>
+<tspan x="1107" dy="17.4">Revision-checked writes</tspan>
+</text>
+<text x="295.5" y="222" text-anchor="start" class="mono" font-size="14" fill="#1f2937">
+<tspan x="295.5" dy="0">Load UI / call API</tspan>
+</text>
+<text x="657" y="312" text-anchor="start" class="mono" font-size="14" fill="#1f2937">
+<tspan x="657" dy="0">Apply role and rules</tspan>
+</text>
+<text x="826" y="360" text-anchor="start" class="mono" font-size="14" fill="#1f2937">
+<tspan x="826" dy="0">Read / save state</tspan>
+</text>
+<text x="74" y="479" text-anchor="start" class="sans" font-size="16" fill="#64748b">
+<tspan x="74" dy="0">Implemented component</tspan>
+</text>
+<text x="326" y="482" text-anchor="start" class="sans" font-size="22" fill="#1f2937">
+<tspan x="326" dy="0">→</tspan>
+</text>
+<text x="365" y="479" text-anchor="start" class="sans" font-size="16" fill="#64748b">
+<tspan x="365" dy="0">Request, call or file operation</tspan>
+</text>
+</svg>

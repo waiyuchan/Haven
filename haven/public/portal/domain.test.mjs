@@ -1,0 +1,9 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {seedState,validateState,assetValue} from './domain.js';
+test('weekly and monthly totals use independent units and exact minor currency',()=>{const s=seedState();assert.equal(validateState(s),'');assert.equal(s.plans[0].price*s.plans[0].term,1095600);assert.equal(s.plans[1].price*s.plans[1].term,654000);});
+test('invoice tampering is rejected',()=>{const s=seedState();s.invoices[0].total++;assert.match(validateState(s),/invoice/i);});
+test('exclusive facility bookings reject overlaps but accept adjacent slots',()=>{const s=seedState();s.reservations=[{id:'b1',residentId:'r1',facilityId:'f1',date:'2026-11-08',start:'19:00',end:'20:00',attendees:2,status:'confirmed'},{id:'b2',residentId:'r2',facilityId:'f1',date:'2026-11-08',start:'19:30',end:'20:30',attendees:2,status:'confirmed'}];assert.match(validateState(s),/booked/);s.reservations[1].start='20:00';assert.equal(validateState(s),'');});
+test('depreciation respects purchase date, quantity and salvage floor',()=>{const a={cost:100000,salvage:10000,quantity:2,purchased:'2020-01-01',life:5};assert.equal(assetValue(a,new Date('2019-01-01')),200000);assert.equal(assetValue(a,new Date('2030-01-01')),20000);assert.ok(Math.abs(assetValue(a,new Date('2022-07-02'))-110000)<200);});
+import {rentSchedule} from './domain.js';
+test('three instalments preserve every penny and calendar month dates clamp safely',()=>{const p={price:24900,term:44,unit:'weekly',payment:'Three instalments'};const schedule=rentSchedule(p,'2026-09-12','2027-07-17');assert.equal(schedule.length,3);assert.equal(schedule.reduce((s,x)=>s+x.amount,0),1095600);const monthly=rentSchedule({price:10001,term:3,unit:'monthly',payment:'Monthly payments'},'2027-01-31','2027-04-30');assert.equal(monthly[1].due,'2027-02-28');assert.equal(monthly[2].due,'2027-03-31');assert.equal(monthly.reduce((s,x)=>s+x.amount,0),30003);});
