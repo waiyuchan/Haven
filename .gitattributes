@@ -1,2 +1,8 @@
 * text=auto
 public/portal/qr-vendor.js linguist-vendored
+
+# Focus the repository language breakdown on the Go application.
+# Exclude the bundled web UI and JavaScript development tooling from statistics.
+public/portal/** linguist-detectable=false
+tests/*.mjs linguist-detectable=false
+scripts/architecture/** linguist-detectable=false
