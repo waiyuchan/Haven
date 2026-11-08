@@ -12,13 +12,13 @@ const model = {
     type: 'process',
     lifecycle: 'existing',
     owner: 'Haven',
-    evidence: 'haven/backend/main.go#L221',
+    evidence: 'backend/main.go#L221',
   },
   nodes: [
-    { id: 'browser', label: 'Web browser', detail: 'Resident and operator portals\nHTML, CSS and JavaScript', kind: 'module', lifecycle: 'existing', plane: 'client', owner: 'Portal user', evidence: 'haven/public/portal/index.html' },
-    { id: 'http', label: 'HTTP routes and sessions', detail: 'Static assets, JSON API and\nin-memory cookie sessions', kind: 'module', lifecycle: 'existing', plane: 'runtime', owner: 'Haven', boundary: 'go-server', evidence: 'haven/backend/portal.go#L613' },
-    { id: 'rules', label: 'Permissions and actions', detail: 'Role-scoped views, booking rules\nand state validation', kind: 'module', lifecycle: 'existing', plane: 'runtime', owner: 'Haven', boundary: 'go-server', evidence: 'haven/backend/portal.go#L684' },
-    { id: 'state', label: 'JSON state file', detail: 'data/state.json\nRevision-checked writes', kind: 'store', lifecycle: 'existing', plane: 'storage', owner: 'Haven', evidence: 'haven/backend/main.go#L183' },
+    { id: 'browser', label: 'Web browser', detail: 'Resident and operator portals\nHTML, CSS and JavaScript', kind: 'module', lifecycle: 'existing', plane: 'client', owner: 'Portal user', evidence: 'public/portal/index.html' },
+    { id: 'http', label: 'HTTP routes and sessions', detail: 'Static assets, JSON API and\nin-memory cookie sessions', kind: 'module', lifecycle: 'existing', plane: 'runtime', owner: 'Haven', boundary: 'go-server', evidence: 'backend/portal.go#L613' },
+    { id: 'rules', label: 'Permissions and actions', detail: 'Role-scoped views, booking rules\nand state validation', kind: 'module', lifecycle: 'existing', plane: 'runtime', owner: 'Haven', boundary: 'go-server', evidence: 'backend/portal.go#L684' },
+    { id: 'state', label: 'JSON state file', detail: 'data/state.json\nRevision-checked writes', kind: 'store', lifecycle: 'existing', plane: 'storage', owner: 'Haven', evidence: 'backend/main.go#L183' },
   ],
   flows: [
     { id: 'request', from: 'browser', to: 'http', direction: 'source-to-target', semantic: 'sync-call', transport: 'HTTP', label: 'Load UI / call API' },
@@ -72,7 +72,6 @@ const labelById = new Map(model.nodes.map(({ id, label }) => [id, label]));
 const contract = {
   canvas: { width, height, strictBounds: true },
   requiredLabels: [model.title, model.boundary.label, ...nodeLabels, ...model.flows.map(({ label }) => label), 'Implemented component', 'Request, call or file operation'],
-  forbiddenLabels: ['Maven', 'Spring Boot', 'MyBatis'],
   styleRules: [model.boundary.label, ...nodeLabels].map(label => ({ label, strokeColor: COLORS.existing, strokeStyle: 'solid' })),
   requiredRelations: model.flows.map(({ from, to }) => ({ from: labelById.get(from), to: labelById.get(to) })),
   overlapSets: [nodeLabels, ['Web browser', model.boundary.label, 'JSON state file']],

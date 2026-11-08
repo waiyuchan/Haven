@@ -1,4 +1,4 @@
-# DBsSA · Haven
+# Haven
 
 Haven is a Go web application for student accommodation. It gives residents a place to book shared spaces, review agreements and invoices, and report repairs. Property teams use a separate portal to manage rooms, residents, facilities and access.
 
@@ -7,7 +7,6 @@ Haven is a Go web application for student accommodation. It gives residents a pl
 Install Go 1.22 or later. From the repository root, run the following commands.
 
 ```sh
-cd haven
 go run ./backend
 ```
 
@@ -16,7 +15,7 @@ Open [http://127.0.0.1:8088](http://127.0.0.1:8088). Choose **Resident portal** 
 | Setting | Default |
 | --- | --- |
 | `DBSSA_ADDR` | `127.0.0.1:8088` |
-| `DBSSA_DATA` | `data/state.json`, relative to `haven/` when run as shown above |
+| `DBSSA_DATA` | `data/state.json`, relative to the process working directory |
 
 ## Architecture
 
@@ -28,10 +27,10 @@ Open [http://127.0.0.1:8088](http://127.0.0.1:8088). Choose **Resident portal** 
 
 | Layer | Implementation |
 | --- | --- |
-| Web interface | Responsive HTML, CSS and JavaScript modules in [`haven/public/portal/`](haven/public/portal/). Go serves the files directly, with no frontend build step. |
-| HTTP service | A single Go process uses the standard-library `net/http` package to serve the portals and a same-origin JSON API. [`main.go`](haven/backend/main.go) |
-| Sessions and permissions | Resident and operator logins use separate cookies. Session records live in memory. Go filters each role's view and checks permissions before applying actions. [`portal.go`](haven/backend/portal.go) · [`access.go`](haven/backend/access.go) |
-| Business state | Go loads the JSON state at startup or uses the bundled seed. It validates changes, checks the revision to reject stale updates, and saves by atomically replacing the file. State survives a restart. Demo sign-ins are required again after a restart. [`main.go`](haven/backend/main.go) · [`seed.json`](haven/backend/seed.json) |
+| Web interface | Responsive HTML, CSS and JavaScript modules in [`public/portal/`](public/portal/). Go serves the files directly, with no frontend build step. |
+| HTTP service | A single Go process uses the standard-library `net/http` package to serve the portals and a same-origin JSON API. [`main.go`](backend/main.go) |
+| Sessions and permissions | Resident and operator logins use separate cookies. Session records live in memory. Go filters each role's view and checks permissions before applying actions. [`portal.go`](backend/portal.go) · [`access.go`](backend/access.go) |
+| Business state | Go loads the JSON state at startup or uses the bundled seed. It validates changes, checks the revision to reject stale updates, and saves by atomically replacing the file. State survives a restart. Demo sign-ins are required again after a restart. [`main.go`](backend/main.go) · [`seed.json`](backend/seed.json) |
 
 Each portal has three JSON endpoints under `/api/resident/` or `/api/operator/`. The `session` endpoint handles sign-in, `state` returns the authorised view and accepts permitted updates, and `action` handles operations such as bookings, queue changes and door access. `GET /healthz` reports service health.
 
@@ -63,7 +62,7 @@ The hosted preview requires authorised ChatGPT access. It serves the same web in
 
 ## Tests
 
-Run the Go and JavaScript tests from `haven/`. The JavaScript tests use Node.js 22.
+Run the Go and JavaScript tests from the repository root. The JavaScript tests use Node.js 22.
 
 ```sh
 go test -race ./backend

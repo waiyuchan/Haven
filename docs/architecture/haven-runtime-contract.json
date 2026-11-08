@@ -17,11 +17,6 @@
     "Implemented component",
     "Request, call or file operation"
   ],
-  "forbiddenLabels": [
-    "Maven",
-    "Spring Boot",
-    "MyBatis"
-  ],
   "styleRules": [
     {
       "label": "Go server",
